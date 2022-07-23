@@ -1,0 +1,5 @@
+{:deps  {kxygk/geoprim  {:local/root
+                         "../geoprim"}
+         kxygk/geogrid  {:local/root
+                         "../geogrid"}}
+ :paths ["."]}
