@@ -129,23 +129,23 @@
 
 (defn
   build-grid
-  ([width-pix
+  [[width-pix
     height-pix
     eas-res
     sou-res
-    norwes-point
-    data-seq]
-   (let[data-array (into-array
-                     Double/TYPE ;; Hopefully this always works...
-                     data-seq)]
-     (->seqgrid
-       width-pix
-       height-pix
-       eas-res
-       sou-res
-       norwes-point
-       data-array)))
-  ([old-geogrid
+    norwes-point]
+   data-seq]
+  (let[data-array (into-array
+                    Double/TYPE ;; Hopefully this always works...
+                    data-seq)]
+    (->seqgrid
+      width-pix
+      height-pix
+      eas-res
+      sou-res
+      norwes-point
+      data-array))
+#_([old-geogrid
     data-seq]
    ;; make a new geogrid based on a previous one
    ;; just use new data
