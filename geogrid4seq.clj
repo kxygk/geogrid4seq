@@ -208,3 +208,18 @@
       (into-array
         Double/TYPE ;; Hopefully this always works...
         data-seq))))
+
+(defn
+  convert-to-normalized
+  "Assuming data on the range:
+  0-MAX
+  makes data on the:
+  0-1 range"
+  [grid]
+  (let [data-max (->> grid
+                      data
+                      (apply max))]
+    (build-grid (params grid)
+                (normalized-data grid
+                                 0
+                                 data-max))))
