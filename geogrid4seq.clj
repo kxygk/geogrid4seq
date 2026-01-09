@@ -210,7 +210,7 @@
         data-seq))))
 
 (defn
-  convert-to-normalized
+  convert-to-minzero-normalized
   "Assuming data on the range:
   0-MAX
   makes data on the:
@@ -219,7 +219,30 @@
   (let [data-max (->> grid
                       data
                       (apply max))]
-    (build-grid (params grid)
-                (normalized-data grid
-                                 0
-                                 data-max))))
+    {:grid  (build-grid (params grid)
+                        (normalized-data grid
+                                         0
+                                         data-max))
+     :scale data-max
+     :shift 0.0}))
+
+(defn
+  convert-to-normalized
+  "Assuming data on the range:
+  0-MAX
+  makes data on the:
+  0-1 range"
+  [grid]
+  (let [data-max (->> grid
+                      data
+                      (apply max))
+        data-min (->> grid
+                      data
+                      (apply min))]
+    {:grid  (build-grid (params grid)
+                        (normalized-data grid
+                                         data-min
+                                         data-max))
+     :scale (- data-max
+               data-min)
+     :shift data-min}))
