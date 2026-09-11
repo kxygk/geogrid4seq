@@ -1,4 +1,7 @@
-{:deps  {kxygk/geoprim  {:local/root
+{:deps  {io.github.kxygk/geoprim        {:git/sha "a2eb857872803a1572be9391c9c73dd844247130"}
+         io.github.kxygk/geogrid        {:git/sha "09a36a5234dfc4240297d7a23e7e21aad175e6e5"}
+         #_#_#_#_
+         kxygk/geoprim  {:local/root
                          "../geoprim"}
          kxygk/geogrid  {:local/root
                          "../geogrid"}}
